@@ -1,13 +1,13 @@
 import React from 'react'
-import { useState } from 'react';
 
-function filterByCategory(category) {
-    console.log(category);
-}
 
-function  Filter(){
+
+function  Filter({onCategoryChange}) {
     const handleCategoryChange = (event) => {
-        filterByCategory(event.target.value)
+       if(onCategoryChange){
+         onCategoryChange(selectCategory) //call the prop fn
+       }
+        console.log(selectCategory); 
     }
   return (
     <select name="filter" onChange={handleCategoryChange}>
@@ -16,7 +16,7 @@ function  Filter(){
     <option value="Dairy">Dairy</option>
     <option value="Dessert">Dessert</option>
   </select>
-  )
+  );
 }
 
 export default Filter;
